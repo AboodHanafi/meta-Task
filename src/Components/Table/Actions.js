@@ -3,7 +3,6 @@ import { IconButton, Stack } from "@mui/material";
 import EditIcon from "@mui/icons-material/Edit";
 import DeleteIcon from "@mui/icons-material/Delete";
 import AlertDialog from "../../Screens/UsersTable/ConfirmationMessage";
-import axios from "axios";
 import { useNavigate } from "react-router-dom";
 
 const Actions = ({ id, rows, setUsers }) => {
@@ -19,11 +18,11 @@ const Actions = ({ id, rows, setUsers }) => {
   return (
     <>
       <Stack direction="row" spacing={1}>
-        <IconButton>
-          <EditIcon onClick={() => navigate(`/user/${id}`)} />
+        <IconButton onClick={() => navigate(`/user/${id}`)}>
+          <EditIcon />
         </IconButton>
-        <IconButton>
-          <DeleteIcon onClick={() => setOpen(true)} />
+        <IconButton onClick={() => setOpen(true)}>
+          <DeleteIcon />
         </IconButton>
       </Stack>
       <AlertDialog

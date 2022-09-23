@@ -15,8 +15,12 @@ export default function BasicTable({ columns, rows, setUsers }) {
         <TableHead>
           <TableRow>
             {columns.map((item, index) => (
-              <TableCell sx={{ fontWeight: "bold" }} align="center">
-                {item}
+              <TableCell
+                key={item.id}
+                sx={{ fontWeight: "bold" }}
+                align="center"
+              >
+                {item.name}
               </TableCell>
             ))}
           </TableRow>

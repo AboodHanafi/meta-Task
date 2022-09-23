@@ -101,6 +101,7 @@ const SignupForm = () => {
         firstName: data.first_name,
         lastName: data.last_name,
         email: data.email,
+        profilePicture: data.avatar,
       });
     }
   };
@@ -243,7 +244,11 @@ const SignupForm = () => {
                 <Image
                   width="100%"
                   height="300px"
-                  background={`url(${avatar}) center center no-repeat`}
+                  background={`url(${
+                    formik.values.profilePicture !== ""
+                      ? formik.values.profilePicture
+                      : avatar
+                  }) center center no-repeat`}
                   margin="5px 0"
                 />
               </Box>

@@ -4,6 +4,7 @@ import MenuIcon from "@mui/icons-material/Menu";
 import { styled } from "@mui/material/styles";
 import MuiDrawer from "@mui/material/Drawer";
 import { Divider, IconButton } from "@mui/material";
+import { useNavigate } from "react-router-dom";
 
 const DrawerHeader = styled("div")(({ theme }) => ({
   display: "flex",
@@ -43,17 +44,18 @@ const Drawer = styled(MuiDrawer, {
 }));
 
 const SideBar = () => {
+  const navigate = useNavigate();
   return (
     <Drawer variant="permanent" open={true}>
       <DrawerHeader>
-        <IconButton onClick={() => null}>
+        <IconButton>
           <MenuIcon fontSize="large" />
         </IconButton>
       </DrawerHeader>
       <Divider />
       {SideBarIcons.map((item) => {
         return (
-          <Icon key={item.id} id={item.name}>
+          <Icon onClick={() => navigate("/")} key={item.id} id={item.name}>
             {item.icon}
           </Icon>
         );

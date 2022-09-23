@@ -1,5 +1,7 @@
+import { Button } from "@mui/material";
 import axios from "axios";
 import React, { useEffect } from "react";
+import { useNavigate } from "react-router-dom";
 import BasicTable from "../../Components/Table";
 import { CustomizedTextField, Typography } from "../../globalStyles";
 import {
@@ -13,13 +15,35 @@ function createData(userName, firstName, lastName, email, id) {
   return { userName, firstName, lastName, email, id };
 }
 
-const columns = ["Username", "First Name", "Last Name", "Email", "Action"];
+const columns = [
+  {
+    name: "Username",
+    id: "1",
+  },
+  {
+    name: "First Name",
+    id: "2",
+  },
+  {
+    name: "Last Name",
+    id: "3",
+  },
+  {
+    name: "Email",
+    id: "4",
+  },
+  {
+    name: "Action",
+    id: "5",
+  },
+];
 
 const UsersTable = () => {
   const [users, setUsers] = React.useState([]);
   const [firstName, setFirstName] = React.useState("");
   const [lastName, setLastName] = React.useState("");
   const [email, setEmail] = React.useState("");
+  const navigate = useNavigate();
   useEffect(() => {
     fetchData();
   }, []);
@@ -74,6 +98,7 @@ const UsersTable = () => {
             id="3"
             variant="outlined"
           />
+          <Button onClick={() => navigate("/addUser")}> add new user</Button>
         </TextFieldsWrapper>
       </SearchSection>
       <TableSection>
