@@ -12,7 +12,7 @@ const DrawerHeader = styled("div")(({ theme }) => ({
   ...theme.mixins.toolbar,
 }));
 
-const Layout = ({ children, menuItems = [], session }) => {
+const Layout = ({ children }) => {
   return (
     <Box sx={{ display: "flex" }}>
       <CssBaseline />

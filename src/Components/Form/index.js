@@ -75,7 +75,7 @@ const SignupForm = () => {
           {
             first_name: values.firstName,
             last_name: values.lastName,
-            userName: values.userName,
+            username: values.userName,
             password: values.password,
             email: values.email,
             avatar: values.profilePicture,
@@ -211,6 +211,8 @@ const SignupForm = () => {
                 onChange={formik.handleChange}
                 sx={{
                   margin: "10px",
+                  width: "350px",
+                  minWidth: "320px",
                 }}
               >
                 <FormControlLabel
@@ -262,6 +264,7 @@ const SignupForm = () => {
                   onChange={async (e) => {
                     if (!e.target.files.length) return;
                     setAvatar(URL.createObjectURL(e.target.files[0]));
+                    // console.log(e.target.files[0].name);
                     formik.setFieldValue(
                       "profilePicture",
                       e.target.files[0].name
